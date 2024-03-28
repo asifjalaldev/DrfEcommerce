@@ -1,23 +1,25 @@
 from django.shortcuts import render
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ViewSet
 from .models import Category, Product, Brand
 from .serializers import CategorySerializer, ProductSerializer, BrandSerializer
 from rest_framework.response import Response
 # Create your views here.
 
-class CategoryViewSets(ModelViewSet):
+class CategoryViewSets(ViewSet):
 
     """
     A viewset that provides default `create()`, `retrieve()`, `update()`,
     `partial_update()`, `destroy()` and `list()` actions.
     """
-    def list(self, request, *args, **kwargs):
+
+
+    def list(self, request):
         queryset=Category.objects.all()
-        serialized=CategorySerializer(queryset, many=True)
-        return Response(serialized.data)
+        serializer=CategorySerializer(queryset, many=True)
+        return Response(serializer.data)
     
 
-class ProductViewSets(ModelViewSet):
+class ProductViewSets(ViewSet):
 
     """
     A viewset that provides default `create()`, `retrieve()`, `update()`,
@@ -29,7 +31,7 @@ class ProductViewSets(ModelViewSet):
         return Response(serialized.data)
     
 
-class BrandViewSets(ModelViewSet):
+class BrandViewSets(ViewSet):
 
     """
     A viewset that provides default `create()`, `retrieve()`, `update()`,

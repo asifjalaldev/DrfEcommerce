@@ -1,10 +1,11 @@
 
 from pathlib import Path
-
+from dotenv import load_dotenv
+import os
 BASE_DIR = Path(__file__).resolve().parent.parent
+os.environ.get('SECRET_KEY')
 
-
-SECRET_KEY = 'django-insecure-kp&of+=(kw!p(3*&cq-k@lgt#mzor%#y2iv9%f!#i8z4o57*$1'
+SECRET_KEY = '$hbua5m9vq3$7w=*1v(ekuzt#(&(61@*7=o)sdc1-l1p!a3z-#'
 
 DEBUG = True
 
@@ -18,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'ecomProj.product',
+    'mptt',
 ]
 
 MIDDLEWARE = [

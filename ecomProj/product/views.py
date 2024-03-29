@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.viewsets import ViewSet
+from rest_framework.viewsets import ViewSet, ModelViewSet
 from .models import Category, Product, Brand
 from .serializers import CategorySerializer, ProductSerializer, BrandSerializer
 from rest_framework.response import Response
@@ -11,7 +11,7 @@ class CategoryViewSets(ViewSet):
     A viewset that provides default `create()`, `retrieve()`, `update()`,
     `partial_update()`, `destroy()` and `list()` actions.
     """
-
+    serializer_class=CategorySerializer
 
     def list(self, request):
         queryset=Category.objects.all()
@@ -25,6 +25,8 @@ class ProductViewSets(ViewSet):
     A viewset that provides default `create()`, `retrieve()`, `update()`,
     `partial_update()`, `destroy()` and `list()` actions.
     """
+    serializer_class=ProductSerializer
+
     def list(self, request, *args, **kwargs):
         queryset=Product.objects.all()
         serialized=ProductSerializer(queryset, many=True)
@@ -37,6 +39,8 @@ class BrandViewSets(ViewSet):
     A viewset that provides default `create()`, `retrieve()`, `update()`,
     `partial_update()`, `destroy()` and `list()` actions.
     """
+    serializer_class=BrandSerializer
+
     def list(self, request, *args, **kwargs):
         queryset=Brand.objects.all()
         serialized=BrandSerializer(queryset, many=True)

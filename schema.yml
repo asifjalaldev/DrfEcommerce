@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: Ecomerse api
+  version: 1.0.0
+  description: project description
+paths:
+  /api/brand//:
+    get:
+      operationId: api_brand_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/category//:
+    get:
+      operationId: api_category_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/product//:
+    get:
+      operationId: api_product_retrieve
+      description: |-
+        A viewset that provides default `create()`, `retrieve()`, `update()`,
+        `partial_update()`, `destroy()` and `list()` actions.
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

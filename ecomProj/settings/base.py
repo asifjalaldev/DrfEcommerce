@@ -1,11 +1,10 @@
 
 from pathlib import Path
-from dotenv import load_dotenv
-import os
-BASE_DIR = Path(__file__).resolve().parent.parent
-os.environ.get('SECRET_KEY')
 
-SECRET_KEY = '$hbua5m9vq3$7w=*1v(ekuzt#(&(61@*7=o)sdc1-l1p!a3z-#'
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+SECRET_KEY = 'django-insecure-kp&of+=(kw!p(3*&cq-k@lgt#mzor%#y2iv9%f!#i8z4o57*$1'
 
 DEBUG = True
 
@@ -21,6 +20,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'ecomProj.product',
     'mptt',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -87,3 +87,17 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    # Other DRF settings
+}
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Ecomerse api',
+    'DESCRIPTION': 'project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}

@@ -27,3 +27,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+class ProductLine(models.Model):
+    price = models.DecimalField(decimal_places=2, max_digits=5)
+    stock_qty = models.IntegerField()
+    sku = models.CharField(max_length=100)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.sku

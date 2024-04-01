@@ -21,8 +21,6 @@ class BrandSerializer(ModelSerializer):
     class Meta:
         model=Brand
         fields='__all__'
-    model = Brand
-    fields = '__all__'
 
 
     
